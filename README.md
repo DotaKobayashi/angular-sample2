@@ -26,3 +26,18 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Docker
+
+```
+docker pull alexsuch/angular-cli:1.2.7
+
+docker run -it -v $(pwd):/app alexsuch/angular-cli:1.2.7 /bin/ash
+cd app/angular-sample2
+npm install
+
+docker run -it --rm -w /app -v $(pwd)/angular-sample2:/app -p 4200:4200 alexsuch/angular-cli:1.2.7 ng serve --host 0.0.0.0
+
+# create pj
+docker run -it --rm -w /app -v $(pwd):/app alexsuch/angular-cli:1.2.7 ng new angular-sample2
+```
